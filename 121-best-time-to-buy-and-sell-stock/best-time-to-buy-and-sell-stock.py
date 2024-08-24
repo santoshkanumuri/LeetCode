@@ -5,5 +5,4 @@ class Solution:
         for num in prices:
             min_num=min(num,min_num)
             max_diff=max(max_diff,num-min_num)
-            print(max_diff)
         return max_diff
