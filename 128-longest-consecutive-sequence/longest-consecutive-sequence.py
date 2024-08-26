@@ -1,22 +1,21 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        if(nums==[]):
+        
+        if(len(nums)==0):
             return 0
-        hashmap={}
-        count,longest=1,1
+
+        st=set(nums)
+        longest=1
         for num in nums:
-            if(hashmap.get(num,0)==0):
-                hashmap[num]=1
-            else:
-                hashmap[num]+=1
-        for num in nums:
-            if(hashmap.get(num-1,0)==0):
-                while(hashmap.get(num+1,0)>0):
-                    count+=1
-                    num+=1
+            count=1
+            if num-1 not in st:
+                while(num+1 in st):
+                    num=num+1
+                    count=count+1
                 longest=max(longest,count)
-                count=1
         return longest
+
+
 
 
         
