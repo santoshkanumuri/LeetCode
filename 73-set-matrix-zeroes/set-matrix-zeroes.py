@@ -3,6 +3,8 @@ class Solution:
         rows=len(matrix)
         columns=len(matrix[0])
         col0=1
+        '''this solution o(1) extra space and 2(n*m) time complexity'''
+
         '''use first row as the column marker and first column as row marker'''
 
         for i in range(rows):
