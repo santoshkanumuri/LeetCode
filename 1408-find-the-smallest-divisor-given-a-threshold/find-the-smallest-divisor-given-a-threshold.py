@@ -3,7 +3,6 @@ class Solution:
         n=len(nums)
         low=1
         high=max(nums)
-        mindivisor=0
         while(low<=high):
             total=0
             mid=(low+high)//2
@@ -13,12 +12,10 @@ class Solution:
                 else:
                     total+=(num//mid)+1
             if(total<=threshold):
-                print(low,mid,high,total)
-                mindivisor=mid
                 high=mid-1
             else:
-                print(mid,total)
                 low=mid+1
-        return mindivisor
+
+        return low
 
         
