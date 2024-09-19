@@ -1,6 +1,5 @@
 class Solution:
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
-        n=len(nums)
         low=1
         high=max(nums)
         while(low<=high):
