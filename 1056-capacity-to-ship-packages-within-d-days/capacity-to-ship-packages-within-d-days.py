@@ -13,15 +13,13 @@ class Solution:
                 low=mid+1
                 continue
             for i in range(n):
-                weight:int=weights[i]
-                if((cap+weight)<=mid):
-                    cap=cap+weight
-                if(i!=n-1 and cap<=mid and cap+weights[i+1]>mid):
+                if((cap+weights[i])<=mid):
+                    cap=cap+weights[i]
+                if(i!=n-1 and cap+weights[i+1]>mid):
                     dcount+=1
                     cap=0
-                elif(i==n-1 and cap<=mid and cap!=0):
+                elif(i==n-1):
                     dcount+=1
-            print(dcount,mid)
             if(dcount<=days):
                 last=mid
                 high=mid-1
