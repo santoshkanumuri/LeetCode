@@ -1,17 +1,14 @@
 class Solution:
     def shipWithinDays(self, weights: List[int], days: int) -> int:
-        low:int = 0
+        mx:int=max(weights)
+        low:int = mx
         high:int = sum(weights)
         n:int=len(weights)
-        mx:int=max(weights)
         last:int=0
         while(low<=high):
             dcount:int=0
             cap:int=0
             mid:int=(low+high)//2
-            if(mx>mid):
-                low=mid+1
-                continue
             for i in range(n):
                 if((cap+weights[i])<=mid):
                     cap=cap+weights[i]
