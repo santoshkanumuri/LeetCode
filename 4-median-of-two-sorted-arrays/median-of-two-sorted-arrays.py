@@ -11,10 +11,10 @@ class Solution:
         while(low<=high):
             mid=(low+high)//2
             mid2=tmid-mid
-            l1=(-10000000)
-            l2=(-10000000)
-            r1=(10000000)
-            r2=(10000000)
+            l1=float("-infinity")
+            l2=float("-infinity")
+            r1=float("infinity")
+            r2=float("infinity")
             if(mid-1>=0):
                 l1=nums1[mid-1]
             if(mid2-1>=0):
