@@ -4,19 +4,36 @@
 #         self.val = val
 #         self.next = next
 class Solution:
+    def reverse(self,head):
+        if head==None or head.next==None:
+            return head
+        else:
+            newnode=self.reverse(head.next)
+            front=head.next
+            front.next=head
+            head.next=None
+            return newnode
+        
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
-        s=head
-        arr=[]
-        while s:
-            arr.append(s.val)
-            s=s.next
-        s=head
-        while s:
-            c=arr.pop(-1)
-            if(c!=s.val):
+        slow=head
+        fast=head
+        while fast and fast.next:
+            slow=slow.next
+            fast=fast.next.next
+        
+        new=self.reverse(slow)
+        second=new
+        first=head
+        while second:
+            if first.val!=second.val:
                 return False
-            s=s.next
+            first=first.next
+            second=second.next
+        
         return True
+
+        
+
         
             
 
