@@ -24,31 +24,20 @@ class Solution:
         rot=n//k
         rem=n%k
         left,right=head,head
-        nodes=[]
-       
+        nodes,lefts=[],[]
+        
         for i in range(rot):
-            diff=k
-            for j in range(diff-1):
+            lefts.append(left)
+            for j in range(k-1):
                 right=right.next
-                
             tmp=right.next
             new=self.reverse(left,tmp)
             nodes.append(new)
             left,right=tmp,tmp
-            if tmp:
-                print(tmp.val)
-        tmp1=None
-        for i,node in enumerate(nodes,start=0):
-            while node.next:
-                node=node.next
-                tmp1=node
-            if(i+1<len(nodes)):
-                node.next=nodes[i+1]
-        tmp1.next=tmp
+
+        for i in range(rot-1):
+            lefts[i].next=nodes[i+1]
+        lefts[-1].next=tmp
         return nodes[0]
-            
-        return head
-
-
-        
+      
         
