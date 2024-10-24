@@ -15,17 +15,14 @@ class Solution:
             n+=1    
         r=k%n
         k=n-r
-        print(r,k)
         if r==0:
             return head
         cur=head
-        k=k-1
-        while k:
+        while k!=1:
             cur=cur.next
             k=k-1
         last.next=head
         p=cur.next
-
         cur.next=None
         
         return p
