@@ -1,15 +1,13 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         stack=[]
-        opens=['(','[','{']
-        close=[')',']','}']
+        pairs={']':'[',')':'(','}':'{'}
         for c in s:
             if c=='(' or c=='[' or c=='{':
                 stack.append(c)
             else:
                 if stack:
-                    idx=opens.index(stack[-1])
-                    if c==close[idx]:
+                    if stack[-1]==pairs[c]:
                         stack.pop()
                     else:
                         return False
