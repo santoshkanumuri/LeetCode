@@ -3,7 +3,7 @@ class Solution:
         n=len(numbers)
         l=0
         r=n-1
-        while l<n-1 and r>0:
+        while l!=r:
             if numbers[l]+numbers[r]==target:
                 return [l+1,r+1]
             elif numbers[l]+numbers[r]>target:
