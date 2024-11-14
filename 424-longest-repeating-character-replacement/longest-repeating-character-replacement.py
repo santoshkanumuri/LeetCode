@@ -15,7 +15,6 @@ class Solution:
                 while (r-l+1-maxf>k):
                     hm[ord(s[l])-65]-=1
                     l+=1
-                    maxf=max(hm)
             maxlen=max(maxlen,r-l+1)
         return maxlen
             
