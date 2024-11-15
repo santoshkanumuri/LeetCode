@@ -1,29 +1,21 @@
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        if len(s2)<len(s1):
-            return False
-        hm1=[0]*26
-        for char in s1:
-            hm1[ord(char)-97]+=1
+        if len(s2)<len(s1): return False
+        hm1,hm2=[0]*26,[0]*26
+        s1len,s2len=len(s1),len(s2)
+
+
+        for i in range(s1len):
+            hm1[ord(s1[i])-97]+=1
+            hm2[ord(s2[i])-97]+=1
         l=0
-        r=len(s1)
-        hm2=[0]*26
-        for i in range(l,r):
-            char=s2[i]
-            hm2[ord(char)-97]+=1
         if hm1==hm2:
             return True
-        
-        while r<len(s2):
-            if hm1==hm2:
-                return True
-            else:
-                print(hm1,hm2)
+        for r in range(s1len,s2len):
+            if(hm1!=hm2):
                 hm2[ord(s2[l])-97]-=1
                 hm2[ord(s2[r])-97]+=1
                 l+=1
-                r+=1
-                print(hm1,hm2)
             if hm1==hm2:
                 return True
             
