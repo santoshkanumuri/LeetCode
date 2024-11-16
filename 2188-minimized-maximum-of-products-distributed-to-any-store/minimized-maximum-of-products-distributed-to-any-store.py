@@ -5,29 +5,23 @@ class Solution:
             return total
         if n>total:
             return 1
-        def distribute(pro):
+        def can_distribute(pro):
             shops=0
-            quan=quantities
-            for q in quan:
-                while q>=pro:
-                    shops+=1
-                    q=q-pro
-                if q<pro and q!=0:
-                    shops+=1
-                    q=0
-            return shops
+            for q in quantities:
+                shops += math.ceil(q/pro)
+            print(shops,pro)
+            return shops<=n
 
         l=0
-        h=total
-        res=total
+        h=max(quantities)
+        res=0
         while l<=h:
             mid=(l+h)//2
-            s=distribute(mid)
-            if s>n:
-                l=mid+1
-            elif s<=n:
-                res=min(res,mid)
+            if can_distribute(mid):
+                res=mid
                 h=mid-1
+            else:
+                l=mid+1
         return res
             
 
