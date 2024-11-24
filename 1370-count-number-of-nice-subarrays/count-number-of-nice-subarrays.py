@@ -1,20 +1,18 @@
 class Solution:
     def numberOfSubarrays(self, nums: List[int], k: int) -> int:
-        def isOdd(num):
-            return num%2 != 0
         def find(k):
-            l=0
-            count=0
-            res=0
-            r=0
-            while r<len(nums):
-                if isOdd(nums[r]):
+            if k<0:
+                return 0
+            l:int=0
+            count:int=0
+            res:int=0
+            for r in range(len(nums)):
+                if nums[r]%2==1:
                     count+=1
                 while count>k:
-                    if isOdd(nums[l]):
+                    if nums[l]%2==1:
                         count-=1
                     l+=1
-                r+=1
                 res=res+(r-l+1)
             return res 
         
