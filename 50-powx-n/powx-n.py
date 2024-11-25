@@ -6,8 +6,8 @@ class Solution:
             if n==1:
                 return x
             else:
-                l=absolute(x,n//2)
-                return x*l*l if n%2 else l*l
+                l=absolute(x*x,n//2)
+                return x*l if n%2 else l
 
 
 
