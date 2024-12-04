@@ -6,19 +6,9 @@
 #         self.right = right
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        arr1=[]
-        arr2=[]
-
-        def inorder(root,arr):
-            if not root:
-                arr.append(root)
-                return
-            
-            arr.append(root.val)
-            inorder(root.left,arr)
-            inorder(root.right,arr)
-
-        inorder(p,arr1)
-        inorder(q,arr2)
-        return arr1==arr2
+        if not p and not q:
+            return True
+        if (not p or not q) or (p.val!=q.val):
+            return False
         
+        return (self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right))
