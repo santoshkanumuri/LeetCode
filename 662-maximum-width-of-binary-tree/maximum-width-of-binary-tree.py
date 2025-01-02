@@ -9,11 +9,8 @@ class Solution:
 
         if not root:
             return 0
-        levels=[]
         queue= collections.deque([(root,1,0)])
-
         max_width=1
-
         while queue:
             lev=[]
             size=len(queue)
@@ -32,8 +29,8 @@ class Solution:
                 
             if len(lev)!=0:
                 max_width=max(max_width,lev[-1]-lev[0]+1)
-            levels.append(lev)
+            
         
-        print(levels)
+        
         return max_width
         
