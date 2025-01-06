@@ -4,12 +4,28 @@ class Solution:
         boxes=[int(box) for box in boxes]
         l:int = len(boxes)
         
-        res=[0]*l
+        left=[0]*l
+        right=[0]*l
 
+        balls=0
+        moves=0
         for i in range(l):
-            for j in range(l):
-                res[i]+=abs(j-i) if boxes[j] else 0
-                
+            left[i]=balls+moves
+            balls+=1 if boxes[i] else 0
+            moves=left[i]
+        balls=0
+        moves=0
+        for i in reversed(range(l)):
+            right[i]=balls+moves
+            balls+=1 if boxes[i] else 0
+            moves=right[i]
+            right[i]+=left[i]
         
-        return res
+        return right
+        
+        
+        
+
+
+        
         
