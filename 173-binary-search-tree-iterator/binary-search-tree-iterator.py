@@ -19,12 +19,8 @@ class BSTIterator:
         return None
         
     def hasNext(self) -> bool:
-        if self.pos<len(self.arr):
-            return True
-        else:
-            return False
+        return self.pos<len(self.arr)
         
-
     def next(self) -> int:
         ans=self.arr[self.pos]
         self.pos+=1
