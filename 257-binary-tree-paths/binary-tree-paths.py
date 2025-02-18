@@ -9,30 +9,25 @@ class Solution:
         if not root:
             return []
         
-        paths=[]
+        paths = []
 
-        def is_leaf(root):
-            if not (root.left or root.right):
-                return True
-        
         def traverse(root,path):
             if not root:
-                return False
-            path.append(str(root.val))
-            if is_leaf(root):
-                k=path.copy()
-                paths.append(k)
+                return 
+            path = path + str(root.val)
+            if not (root.left or root.right):
+                paths.append(path)
                 
-            if traverse(root.left, path):
-                return True
-            if traverse(root.right, path):
-                return True
-            path.pop()
-            return False
+            if root.left:
+                traverse(root.left, path + "->")
+                
+            if root.right:
+                traverse(root.right, path + "->")
+
+            return 
         
-        traverse(root,[])
-        res=[]
-        paths=["->".join(path) for path in paths]
+        traverse(root, "")
+        
         return paths
 
 
