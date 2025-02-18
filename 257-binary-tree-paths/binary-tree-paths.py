@@ -18,11 +18,8 @@ class Solution:
         def traverse(root,path):
             if not root:
                 return False
-            
             path.append(str(root.val))
-            
             if is_leaf(root):
-                print(path)
                 k=path.copy()
                 paths.append(k)
                 
