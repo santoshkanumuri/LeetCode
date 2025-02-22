@@ -5,9 +5,9 @@ class Solution:
         j = len(s)-1
         sl = list(s)
         while i < j :
-            while sl[i] not in arr and i<len(sl)-1 and i<j:
+            while sl[i] not in arr and i<j:
                 i+=1
-            while sl[j] not in arr and j>0 and i<j:
+            while sl[j] not in arr and i<j:
                 j-=1
             sl[i], sl[j] = sl[j], sl[i]
             i+=1
