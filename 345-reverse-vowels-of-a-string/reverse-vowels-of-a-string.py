@@ -4,7 +4,7 @@ class Solution:
         i = 0
         j = len(s)-1
         sl = list(s)
-        while i < j and i < len(sl)-1 and j > 0:
+        while i < j :
             while sl[i] not in arr and i<len(sl)-1 and i<j:
                 i+=1
             while sl[j] not in arr and j>0 and i<j:
